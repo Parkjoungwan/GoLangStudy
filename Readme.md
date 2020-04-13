@@ -23,4 +23,22 @@ Go-lang 스터디 진행현황
 >> 	fmt.Println(totalLenght, upper)
 >> }
 >> ```
+>>*1.5 for, range, ...args*
+>>```go
+>>package main
+>>import "fmt"
+>>
+>>func superAdd(numbers ...int) int {
+>>	total := 0
+>>	for _, number := range numbers {
+>>		total += number
+>>  }
+>>	return total
+>>}
+>>
+>>func main() {
+>>	result := superAdd(1, 2, 3, 4, 5, 6)
+>>	fmt.Println(result)
+>>}
+
 
