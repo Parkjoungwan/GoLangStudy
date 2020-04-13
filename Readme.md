@@ -1,8 +1,10 @@
 Go-lang 스터디 진행현황
 =============
 ##### 노마드코더-쉽고 빠른 Go 시작하기
-> 2020.04.13 
->> *1.4 Functions part Two*
+> __2020.04.13__ 
+>>
+>> **1.4 Functions part Two**
+>>
 >> ```go
 >> package main
 >>
@@ -23,7 +25,9 @@ Go-lang 스터디 진행현황
 >> 	fmt.Println(totalLenght, upper)
 >> }
 >> ```
->>*1.5 for, range, ...args*
+>>
+>>**1.5 for, range, ...args**
+>>
 >>```go
 >>package main
 >>import "fmt"
@@ -40,8 +44,11 @@ Go-lang 스터디 진행현황
 >>	result := superAdd(1, 2, 3, 4, 5, 6) 
 >>	fmt.Println(result)
 >>}
->>*1.6 If with a Twist*(특별한게 없어서 코드패스)
->>*1.7 Switch*
+>>
+>>**1.6 If with a Twist**(특별한게 없어서 코드패스)
+>>
+>>**1.7 Switch**
+>>
 >>```go
 >>package main
 >>
@@ -68,4 +75,4 @@ Go-lang 스터디 진행현황
 >>}
 >>```
 >>> 다른 프로그래밍 언어와 다르지 않은 기능들
->20.04.14
+> __20.04.14__
