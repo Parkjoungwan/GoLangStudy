@@ -2,7 +2,7 @@ Go-lang 스터디 진행현황
 =============
 ##### 노마드코더-쉽고 빠른 Go 시작하기
 > 2020.04.13 
->> *1.5 for, range, ...args*
+>> *1.4 Functions part Two*
 >> ```go
 >> package main
 >>
