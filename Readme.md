@@ -42,4 +42,30 @@ Go-lang 스터디 진행현황
 >>}
 >>*1.6 If with a Twist*(특별한게 없어서 코드패스)
 >>*1.7 Switch*
-
+>>```go
+>>package main
+>>
+>>import "fmt"
+>>
+>>func canIDrink(age int) bool {
+>>	switch koreanAge := age + 2; koreanAge {
+>>	case 10:
+>>		return false
+>>	case 18:
+>>		return true
+>>		/*case age < 10: //go에서는 switch에 조건을 만들 수 있다. if, else if 처럼 사용 가능
+>>			return false
+>>		case age == 18:
+>>			return true
+>>		case age > 50:
+>>			return false*/
+>>	}
+>>	return false
+>>}
+>>
+>>func main() {
+>>	fmt.Println(canIDrink(18))
+>>}
+>>```
+>>> 다른 프로그래밍 언어와 다르지 않은 기능들
+>20.04.14
