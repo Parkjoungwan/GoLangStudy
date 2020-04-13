@@ -15,4 +15,4 @@ func lenAndUpper(name string) (lenght int, uppercase string) {
 func main() {
 	totalLenght, upper := lenAndUpper("park")
 	fmt.Println(totalLenght, upper)
-}
+
