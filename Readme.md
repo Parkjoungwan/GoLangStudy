@@ -44,10 +44,10 @@ Go-lang 스터디 진행현황
 >>	result := superAdd(1, 2, 3, 4, 5, 6) 
 >>	fmt.Println(result)
 >>}
+>>```
+>> **1.6 If with a Twist(특별한게 없어서 코드패스)**
 >>
->>**1.6 If with a Twist**(특별한게 없어서 코드패스)
->>
->>**1.7 Switch**
+>> **1.7 Switch**
 >>
 >>```go
 >>package main
