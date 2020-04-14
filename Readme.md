@@ -74,6 +74,27 @@ Go-lang 스터디 진행현황
 >>	fmt.Println(canIDrink(18))
 >>}
 >>```
->>> 다른 프로그래밍 언어와 다르지 않은 기능들
-
+>>> __다른 프로그래밍 언어와 다르지 않은 기능들__
+>
 > __20.04.14__
+>
+>>**1.8 Pointers!**
+>>
+>>```go
+>>package main
+>>
+>>import "fmt"
+>>
+>>func main() {
+>>	a := 2
+>>	b := &a
+>>	a = 10
+>>	*b = 20
+>>	fmt.Println(a, *b) //Low-level programing
+>>} //c의 POINTER 개념하고 똑같네
+>>```
+>>
+>>**1.9 Arrays and Slices**
+>>
+>>```go
+>>
