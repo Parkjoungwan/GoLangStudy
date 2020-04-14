@@ -109,3 +109,18 @@ Go-lang 스터디 진행현황
 >>	fmt.Println(&names[0])
 >>}// vector와 비슷한 개념인 듯 하다.
 >>```
+>>
+>>**1.10 Maps**
+>>
+>>```go
+>>package main
+>>
+>>import "fmt"
+>>
+>>func main() {
+>>	nico := map[string]string{"name": "nico", "age": "12"}
+>>	for _, value := range nico {
+>>		fmt.Println(value)
+>>	}
+>>}
+>>```
