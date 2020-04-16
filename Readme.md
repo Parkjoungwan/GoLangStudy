@@ -125,7 +125,10 @@ Go-lang 스터디 진행현황
 >>}
 >>```
 >>
->>**1.11 struct**
+>
+> __20.04.15__
+>
+>>**1.11 structs**
 >>
 >>```go
 >>package main
@@ -143,5 +146,41 @@ Go-lang 스터디 진행현황
 >>	nico := person{name: "nico", age: 18, favFood: favFood} // field:value or value >>통일 시켜야 한다.
 >>	fmt.Println(nico.name)
 >>}//c에서의 구조체와 유사
+>>```
+>>
+>
+> __20.04.16__
+>
+>>**2.0 Account + NewAccount**
+>>```go
+>>package main
+>>// main.go
+>>import (
+>>	"fmt"
+>>
+>>	"github.com/park/learngo/accounts"
+>>)
+>>
+>>func main() {
+>>	account := accounts.NewAccount("park")
+>>	fmt.Println(account)
+>>}
+>>```
+>>```go
+>>// acounts.go
+>>package accounts
+>>
+>>// Account strunt
+>>type Account struct {//이 struct는 private
+>>	owner   string
+>>	balance int
+>>}
+>>
+>>// NewAccount creates Account
+>>func NewAccount(owner string) *Account {//constructor 역할을 함수가 대신함
+>>	account := Account{owner: owner, balance: 0}
+>>	return &account //포인터를 이용해서 sturct를 새로만들지 않기 위해 만든 sturct의 주소값을 반환
+>>}
+>>//struct를 이용해서 은행 계좌 만들기
 >>```
 
