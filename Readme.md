@@ -183,4 +183,66 @@ Go-lang 스터디 진행현황
 >>}
 >>//struct를 이용해서 은행 계좌 만들기
 >>```
+>>
+>>**2.1 Methods part One, Two**
+>>
+>>```go
+>>package accounts
+>>//accounts.go
+>>
+>>// Account strunt
+>>type Account struct {
+>>	owner   string
+>>	balance int
+>>}
+>>
+>>var errnoMoney = errors.New("Can't withdraw") //에러메세지
+>>
+>>// NewAccount creates Account
+>>func NewAccount(owner string) *Account {
+>>	account := Account{owner: owner, balance: 0}
+>>	return &account
+>>}
+>>
+>>// Deposit x amount on your account 계좌에 금액추가
+>>func (a *Account) Deposit(amount int) {// 우리가 처음 만들었던 Account에 접근하려면 주소로 접근해야한다.(그냥 Account를 사용하면 '복사본'에 접근한다.) 따라서 포인터로 receiver도 포인터로 생성
+>>	a.balance += amount
+>>}
+>>
+>>// Balance of your account 계좌 확인
+>>func (a Account) Balance() int {//method를 생성할 땐 func 와 이름 사이에 receiver를 만들어줌. 이때 이름은 해당 struct의 첫 글자의 소문자여야 한다 a <- 'A'ccount
+>>	return a.balance
+>>}
+>>// Withdraw x amount from your account
+>>func (a *Account) Withdraw(amount int) error {
+>>	if a.balance < amount {// 에러체크
+>>		return errnoMoney
+>>	}
+>>	a.balance -= amount
+>>	return nil
+>>}
+>>```
+>>
+>>```go
+>>package main
+>>//main.go
+>>import (
+>>	"fmt"
+>>
+>>	"github.com/park/learngo/accounts"
+>>)
+>>
+>>func main() {
+>>	account := accounts.NewAccount("park")
+>>	account.Deposit(10)
+>>	fmt.Println(account.Balance())
+>>	err := account.Withdraw(20)
+>>	if err != nil {// error 체크를 직접 만들어줘야함. 아니면 아무것도 출력하지 않는다.
+>>		fmt.Println(err)
+>>	}
+>>	fmt.Println(account.Balance())
+>>
+>>}
+>>```
+>>
 
