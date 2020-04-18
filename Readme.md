@@ -245,4 +245,83 @@ Go-lang 스터디 진행현황
 >>}
 >>```
 >>
+>
+>__20.04.18__
+>
+>>**2.3 Finishing Up**
+>>
+>>```go
+>>package main
+>>
+>>import (
+>>	"fmt"
+>>
+>>	"github.com/park/learngo/accounts"
+>>)
+>>
+>>func main() {
+>>	account := accounts.NewAccount("park")
+>>	account.Deposit(10)
+>>
+>>	fmt.Println(account)//기본적으로 go 에서 지원하는 method 호출
+>>
+>>}
+>>```
+>>
+>>```go
+>>package accounts
+>>
+>>import (
+>>	"errors"
+>>	"fmt"
+>>)
+>>
+>>// Account strunt
+>>type Account struct {
+>>	owner   string
+>>	balance int
+>>}
+>>
+>>var errnoMoney = errors.New("Can't withdraw")
+>>
+>>// NewAccount creates Account
+>>func NewAccount(owner string) *Account {
+>>	account := Account{owner: owner, balance: 0}
+>>	return &account
+>>}
+>>
+>>// Deposit x amount on your account
+>>func (a *Account) Deposit(amount int) {
+>>	a.balance += amount
+>>}
+>>
+>>// Balance of your account
+>>func (a Account) Balance() int {
+>>	return a.balance
+>>}
+>>
+>>// Withdraw x amount from your account
+>>func (a *Account) Withdraw(amount int) error {
+>>	if a.balance < amount {
+>>		return errnoMoney
+>>	}
+>>	a.balance -= amount
+>>	return nil
+>>}
+>>
+>>// ChangeOwner of the account
+>>func (a *Account) ChangeOwner(newOwner string) {
+>>	a.owner = newOwner
+>>}
+>>
+>>// Owner of the account
+>>func (a Account) Owner() string {
+>>	return a.owner
+>>}
+>>
+>>func (a Account) String() string { //기본적으로 go에서 지원하는 method
+>>	return fmt.Sprint(a.Owner(), "'s account. \nHas: ", a.Balance())
+>>}
+>>```
+>>
 
