@@ -324,4 +324,91 @@ Go-lang 스터디 진행현황
 >>}
 >>```
 >>
-
+>
+>__20.04.20__
+>>
+>>**2.4 Dictionary part one**
+>>
+>>```go
+>>package mydict
+>>//경로: learngo/myict/mydict.go
+>>import "errors"
+>>
+>>// Dictionary type
+>>type Dictionary map[string]string // 타입을 가명으로 바꿈
+>>
+>>var errNotFound = errors.New("Not Found")
+>>var errWordExists = errors.New("That word alreay exists")
+>>
+>>//Search for a word
+>>func (d Dictionary) Search(word string) (string, error) {
+>>	value, exists := d[word]
+>>	if exists {
+>>		return value, nil
+>>	}
+>>	return "", errNotFound
+>>}
+>>```
+>>
+>>```go
+>>package main
+>>//경로 learngo/main.go
+>>import (
+>>	"fmt"
+>>
+>>	"github.com/park/learngo/mydict"
+>>)
+>>
+>>func main() {
+>>	dictionary := mydict.Dictionary{"first": "First word"}
+>>	definition, err := dictionary.Search("Second")
+>>	if err != nil {
+>>		fmt.Println(err)
+>>	} else {
+>>		fmt.Println(definition)
+>>	}
+>>}
+>>```
+>>
+>>**2.5 Add Method**
+>>
+>>```go
+>>//추가된 함수 
+>>//Add a word to the dictionary
+>>func (d Dictionary) Add(word, def string) error {
+>>	_, err := d.Search(word)
+>>	switch err {
+>>	case errNotFound:
+>>		d[word] = def
+>>	case nil:
+>>		return errWordExists
+>>	}
+>>	return nil
+>>}
+>>```
+>>
+>>```go
+>>package main
+>>
+>>import (
+>>	"fmt"
+>>
+>>	"github.com/park/learngo/mydict"
+>>)
+>>
+>>func main() {
+>>	dictionary := mydict.Dictionary{}
+>>	word := "hello"
+>>	definition := "Greeting"
+>>	err := dictionary.Add(word, definition)
+>>	if err != nil {
+>>		fmt.Println(err)
+>>	}
+>>	hello, _ := dictionary.Search(word)
+>>	fmt.Println("found", word, "definitions:", hello)
+>>	err2 := dictionary.Add(word, definition)
+>>	if err2 != nil {
+>>		fmt.Println(err2)
+>>	}
+>>}
+>>```
